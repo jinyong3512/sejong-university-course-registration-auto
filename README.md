@@ -1,1 +1,4 @@
-# Sejong-University-Auto-Apply
+
+
+##  라이센스
+APACHE LICENSE, VERSION 2.0
