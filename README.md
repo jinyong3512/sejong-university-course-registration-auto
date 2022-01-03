@@ -10,11 +10,10 @@
 
 ## :white_check_mark: 실행방법
 
-1.
-    ```
-    $ cd .. (C 드라이브가 나올 때까지)
-    $ git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
-    ```
+1.```
+$ cd .. (C 드라이브가 나올 때까지)
+$ git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
+```
 
 2.
     본인 컴퓨터의 크롬 버전을 확인한 후 chromedriver.exe를 다운로드합니다.
