@@ -13,13 +13,13 @@ $ cd .. (C 드라이브가 나올 때까지)
 $ git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
 ```
 
-본인 컴퓨터의 크롬 버전을 확인한 후 chromedriver.exe를 다운받습니다.
+본인 컴퓨터의 크롬 버전을 확인한 후 chromedriver.exe를 다운로드합니다.
 
 크롬 버전 확인 방법: https://blog.naver.com/kiddwannabe/221539689821
 
 chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
-프로젝트안에 chromedriver.exe 를 자신의 chromedriver.exe로 덮어주세요.
+프로젝트 안에 chromedriver.exe를 자신의 chromedriver.exe로 덮어주세요.
 
 이후 JAVA IDE로 프로젝트를 열고
 Run Main.java
