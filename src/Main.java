@@ -4,9 +4,24 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.By;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
         // 학번과 비밀번호 수강신청정보 설정
         Scanner scan = new Scanner(System.in);
@@ -64,6 +79,30 @@ public class Main {
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span")).click();
         // 수강신청 클릭
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span")).click();
+        Thread.sleep(1000);
 
+
+
+
+
+        //캡쳐하고 싶은 element 찾기
+        WebElement ele = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/textarea"));
+
+        // Get entire page screenshot
+        File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        BufferedImage  fullImg = ImageIO.read(screenshot);
+
+        // Get the location of element on the page
+        Point point = ele.getLocation();
+
+        // Get width and height of the element
+        int eleWidth = ele.getSize().getWidth();
+        int eleHeight = ele.getSize().getHeight();
+
+        // Crop the entire page screenshot to get only element screenshot
+        BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
+
+        // Save File to disk
+        ImageIO.write(eleScreenshot,"png",new File("elem_screen_shot.png"));
     }
 }
