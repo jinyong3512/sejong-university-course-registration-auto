@@ -2,13 +2,29 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.By;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         // 학번과 비밀번호 설정
-        String ID = "17011681";
-        String PW = "";
+        Scanner scan = new Scanner(System.in);
+        System.out.print("ID를 입력하세요 ");
+        String ID = scan.nextLine();
+        System.out.print("PW를 입력하세요 ");
+        String PW = scan.nextLine();
+        System.out.println("학수번호 분반을 입력하세요 ex)106245 001    그만 입력 하려면 X를 입력하세요");
+        ArrayList<ArrayList<String>> informations = new ArrayList<ArrayList<String>>();
+        while(true){
+            String input_line = scan.nextLine();
+            if (input_line.equals("X"))
+                break;
+            ArrayList<String> information = new ArrayList<String>();
+            information.add(input_line.split(" ")[0]);
+            information.add(input_line.split(" ")[1]);
+            informations.add(information);
+        }
 
         // ChromeDriver 이름 과 설치경로
         String WEB_DRIVER_ID = "chromedriver.exe";
@@ -47,8 +63,6 @@ public class Main {
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span")).click();
         // 수강신청 클릭
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span")).click();
-
-
 
     }
 }
