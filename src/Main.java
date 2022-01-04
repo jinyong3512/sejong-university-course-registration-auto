@@ -8,13 +8,13 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        // 학번과 비밀번호 설정
+        // 학번과 비밀번호 수강신청정보 설정
         Scanner scan = new Scanner(System.in);
         System.out.print("ID를 입력하세요 ");
         String ID = scan.nextLine();
         System.out.print("PW를 입력하세요 ");
         String PW = scan.nextLine();
-        System.out.println("학수번호 분반을 입력하세요 ex)106245 001    그만 입력 하려면 X를 입력하세요");
+        System.out.println("(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    그만 입력 하려면 X를 입력하세요");
         ArrayList<ArrayList<String>> informations = new ArrayList<ArrayList<String>>();
         while(true){
             String input_line = scan.nextLine();
@@ -23,6 +23,7 @@ public class Main {
             ArrayList<String> information = new ArrayList<String>();
             information.add(input_line.split(" ")[0]);
             information.add(input_line.split(" ")[1]);
+            information.add(input_line.split(" ")[2]);
             informations.add(information);
         }
 
