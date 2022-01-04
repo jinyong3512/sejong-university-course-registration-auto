@@ -1,7 +1,7 @@
 <p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을 통해 수강신청을 계속 합니다. </p>
 
 ## :star: 특징
-1. (예정)ID, PW, 학수 번호 여러 개, 분반 여러 개를 입력받아 계속 수강신청을 한다.
+1. (완료)ID, PW, (학수 번호, 분반, 검색 시 몇 번째 위치)여러 개를 입력받고 계속 수강신청 하기
 2. (예정)수강정정날 chapcha 피하는 기능
 
 ## :desktop_computer: 설치 환경
