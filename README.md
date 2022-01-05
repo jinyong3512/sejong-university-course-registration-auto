@@ -7,7 +7,7 @@
 4. (예정) [**Python]    [Main2.py**]      Main.py + 수강정정날 captcha 피하는 기능 
 
 # :desktop_computer: 설치 환경
-    Java IDE or Python
+    Java or Python
 
 
 # :white_check_mark: 실행방법
