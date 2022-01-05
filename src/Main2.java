@@ -6,9 +6,25 @@ import org.openqa.selenium.By;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Main {
+public class Main2 {
     public static void main(String[] args) throws InterruptedException, IOException {
 
         // 학번과 비밀번호 수강신청 정보 설정
@@ -124,6 +140,79 @@ public class Main {
                     System.out.println("분반 입력 오류 입니다. 분반은 1 부터 시작 합니다.");
                     System.exit(0);
             }
+            Thread.sleep(1000);
+
+            // elem_screen_shot.png 얻는 과정
+            // 캡쳐하고 싶은 element 찾기
+            WebElement ele = driver.findElement(By.xpath("???"));
+
+            // Get entire page screenshot
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            BufferedImage fullImg = ImageIO.read(screenshot);
+
+            // Get the location of element on the page
+            Point point = ele.getLocation();
+
+            // Get width and height of the element
+            int eleWidth = ele.getSize().getWidth();
+            int eleHeight = ele.getSize().getHeight();
+
+            // Crop the entire page screenshot to get only element screenshot
+            BufferedImage eleScreenshot = fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
+
+            // Save File to disk
+            ImageIO.write(eleScreenshot, "png", new File("elem_screen_shot.png"));
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            // GrayScale Resize
+            Mat imageLenna = Imgcodecs.imread("C:\\elem_screen_shot.png");
+            Mat imageGrayLenna = new Mat();
+            Mat imageResizeLenna = new Mat();
+            Imgproc.cvtColor(imageLenna, imageGrayLenna, Imgproc.COLOR_RGB2GRAY);
+            Size sizeLenna = new Size(2000, 1000);
+            Imgproc.resize(imageGrayLenna, imageResizeLenna, sizeLenna);
+
+            // Equalize
+            Mat imageEqualizedGrayLenna = new Mat();
+            Imgproc.equalizeHist(imageResizeLenna, imageEqualizedGrayLenna);
+
+            // Binarization
+            Mat imageBinarizationGrayLenna = new Mat();
+            Imgproc.threshold(imageEqualizedGrayLenna, imageBinarizationGrayLenna, 1, 255, Imgproc.THRESH_BINARY);
+            Imgcodecs.imwrite("C:\\tmp\\result.png", imageBinarizationGrayLenna);
+
+            // �ν� ��Ű��
+            String datapath = "C:\\Tess4J";
+            String testResourcesDataPath = "C:\\Tess4J\\tessdata";
+            Tesseract instance = new Tesseract();
+            instance.setDatapath(new File(datapath).getPath());
+            instance.setLanguage("eng");
+            ImageIO.scanForPlugins();
+            File imageFile = new File("C:\\tmp\\result.png");
+            String result = instance.doOCR(imageFile);
+
+            // ���ڿ����� ���ڸ� ����
+            String restr = result.replaceAll("[^0-9]", "");
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            // 숫자 판독 결과 입력
+            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[2]/input")).sendKeys(restr);
+
+            // 코드 입력 버튼 클릭
+            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[1]")).click();
             Thread.sleep(1000);
 
             // "선택한 과목을 수강신청 하시겠습니까?" 확인 클릭
