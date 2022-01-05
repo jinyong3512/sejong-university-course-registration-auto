@@ -44,7 +44,7 @@ chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 **4.  실행 도구**
 
 ### 자바  
-Java IDE로 프로젝트를 열고 **Run Main.java or Run Main2.java**
+IDE로 프로젝트를 열고 **Run Main.java or Run Main2.java**
 
 ### 파이썬  
 1. cmd 열고 'pip install selenium'
