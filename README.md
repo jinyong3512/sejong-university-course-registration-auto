@@ -12,7 +12,7 @@
 
 ## :white_check_mark: 실행방법
 
-###1.  **Git Bash를 이용하여 clone 하기**###
+###**1.  Git Bash를 이용하여 clone 하기**###
    
     ```
     $ cd .. (C 드라이브가 나올 때까지)
@@ -20,7 +20,7 @@
     ```
 
 
-###2.  **chromedriver 다운 받기**###
+###**2.  chromedriver 다운 받기**###
 
     본인 컴퓨터의 크롬 버전을 확인한 후 chromedriver.exe를 다운로드합니다.
 
@@ -31,14 +31,14 @@
     프로젝트 안에 chromedriver.exe를 자신의 chromedriver.exe로 덮어주세요.
 
 
-###3.  **보안 프로그램 삭제 하기**###
+###**3.  보안 프로그램 삭제 하기**###
 
     학교 로그인할 때 쓰는 키보드 보안 프로그램을 삭제해야 합니다.
 
     프로그램 추가/제거에서 nProtect Online Security V1.0을 제거해 주세요!
 
 
-###4.  **실행 도구**###
+###**4.  실행 도구**###
 
     #### 자바  
     Java IDE로 프로젝트를 열고 **Run Main.java or Run Main2.java**
