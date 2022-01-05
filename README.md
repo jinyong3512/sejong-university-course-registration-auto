@@ -1,11 +1,13 @@
 <p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을 통해 수강신청을 계속 합니다. </p>
 
 ## :star: 특징
-1. (진행중)ID, PW, (학수 번호, 분반, 검색 시 몇 번째 위치)여러 개를 입력받고 계속 수강신청 하기
-2. (예정)수강정정날 chapcha 피하는 기능
+1. (진행중)Java ID, PW, (학수 번호, 분반, 검색 시 몇 번째 위치)여러 개를 입력받고 계속 수강신청 하기
+2. (진행중)Python ID, PW, (학수 번호, 분반, 검색 시 몇 번째 위치)여러 개를 입력받고 계속 수강신청 하기
+3. (예정)Java 수강정정날 captcha 피하는 기능
+4. (예정)Python 수강정정날 captcha 피하는 기능 
 
 ## :desktop_computer: 설치 환경
-    JAVA IDE
+    Java IDE or Python
 
 
 ## :white_check_mark: 실행방법
@@ -34,9 +36,13 @@ chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
 
 *
-이후 JAVA IDE로 프로젝트를 열고
+-자바
+Java IDE로 프로젝트를 열고 Run Main.java
 
-Run Main.java
+-파이썬
+IDE로 .py를 열고 Run Main.py
+
+
 
 
 ## :page_with_curl: 라이센스
