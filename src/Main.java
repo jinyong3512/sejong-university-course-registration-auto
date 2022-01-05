@@ -23,7 +23,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        // 학번과 비밀번호 수강신청정보 설정
+        // 학번과 비밀번호 수강신청 정보 설정
         Scanner scan = new Scanner(System.in);
         System.out.print("ID를 입력하세요 ");
         String ID = scan.nextLine();
@@ -46,15 +46,17 @@ public class Main {
         String WEB_DRIVER_ID = "chromedriver.exe";
         String WEB_DRIVER_PATH = "C:/Sejong-University-Auto-Apply";
 
-        // ChromeDriver 경로 설정
+        // ChromeDriver 경로 시스템 설정
         System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
 
-        // ChromeDriver 옵션 설정
+        // 크롬옵션 만들어 주기
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
 
-        // driver 옵션 설정
+        // option 넣고 driver 변수 만들기
         ChromeDriver driver = new ChromeDriver(options);
+
+        // driver 변수 설정
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         // 학사정보 시스템 URL 접속
@@ -63,9 +65,7 @@ public class Main {
 
         // 키보드 보안 팝업 취소 후 확인
         driver.switchTo().alert().dismiss();
-        Thread.sleep(1000);
         driver.switchTo().alert().accept();
-        Thread.sleep(1000);
 
         // ID PW 입력후 로그인 버튼 클릭
         driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/div[1]/input")).sendKeys(ID);
@@ -79,30 +79,30 @@ public class Main {
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span")).click();
         // 수강신청 클릭
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span")).click();
-        Thread.sleep(1000);
 
 
 
 
 
-        //캡쳐하고 싶은 element 찾기
-        WebElement ele = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/textarea"));
 
-        // Get entire page screenshot
-        File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        BufferedImage  fullImg = ImageIO.read(screenshot);
+        // // 캡쳐하고 싶은 element 찾기
+        // WebElement ele = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/textarea"));
 
-        // Get the location of element on the page
-        Point point = ele.getLocation();
+        // // Get entire page screenshot
+        // File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        // BufferedImage  fullImg = ImageIO.read(screenshot);
 
-        // Get width and height of the element
-        int eleWidth = ele.getSize().getWidth();
-        int eleHeight = ele.getSize().getHeight();
+        // // Get the location of element on the page
+        // Point point = ele.getLocation();
 
-        // Crop the entire page screenshot to get only element screenshot
-        BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
+        // // Get width and height of the element
+        // int eleWidth = ele.getSize().getWidth();
+        // int eleHeight = ele.getSize().getHeight();
 
-        // Save File to disk
-        ImageIO.write(eleScreenshot,"png",new File("elem_screen_shot.png"));
+        // // Crop the entire page screenshot to get only element screenshot
+        // BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
+
+        // // Save File to disk
+        // ImageIO.write(eleScreenshot,"png",new File("elem_screen_shot.png"));
     }
 }
