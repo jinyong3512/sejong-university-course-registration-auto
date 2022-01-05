@@ -21,7 +21,7 @@ $ git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
 
 
 
-**2.  chromedriver 다운 받기**
+## 2.  chromedriver 다운 받기
 
 본인 컴퓨터의 크롬 버전을 확인한 후 chromedriver.exe를 다운로드합니다.
 
@@ -33,7 +33,7 @@ chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
 
 
-**3.  보안 프로그램 삭제 하기**
+## 3.  보안 프로그램 삭제 하기
 
 학교 로그인할 때 쓰는 키보드 보안 프로그램을 삭제해야 합니다.
 
@@ -41,7 +41,7 @@ chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
 
 
-**4.  실행 도구**
+## 4.  실행 도구
 
 ### 자바  
 IDE로 프로젝트를 열고 **Run Main.java or Run Main2.java**
