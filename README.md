@@ -53,8 +53,9 @@ IDE로 프로젝트를 열고 **Run Main.java or Run Main2.java**
 
 
 
-# :page_with_curl: 라이센스
-APACHE LICENSE, VERSION 2.0
-
 # 📧 연락 수단
 wlsdyd4@naver.com
+
+
+# :page_with_curl: 라이센스
+APACHE LICENSE, VERSION 2.0
