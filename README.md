@@ -42,7 +42,7 @@ chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
 -파이썬 : 
 1. cmd 열고 'pip install selenium'
-2. IDE로 .py를 열고 Run Main.py
+2. IDE로 Main.py를 열고 Run Main.py
 
 
 
