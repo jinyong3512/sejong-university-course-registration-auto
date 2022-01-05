@@ -50,5 +50,5 @@ chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 ## :page_with_curl: 라이센스
 APACHE LICENSE, VERSION 2.0
 
-## :e_mail: 연락 수단
+## 📧: 연락 수단
 wlsdyd4@naver.com
