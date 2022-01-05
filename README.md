@@ -1,8 +1,8 @@
 <p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을 통해 수강신청을 계속 합니다. </p>
 
 ## :star: 특징
-1. (완료) **Java    Main.java**   ID, PW, (학수 번호, 분반, 검색 시 몇 번째 위치)여러 개를 입력받고 계속 수강신청 하기
-2. (완료) **Python  Main.py**     ID, PW, (학수 번호, 분반, 검색 시 몇 번째 위치)여러 개를 입력받고 계속 수강신청 하기
+1. (완료) **Java       Main.java**       ID, PW, (학수 번호, 분반, 검색 시 몇 번째 위치)여러 개를 입력받고 계속 수강신청 하기
+2. (완료) **Python     Main.py**         ID, PW, (학수 번호, 분반, 검색 시 몇 번째 위치)여러 개를 입력받고 계속 수강신청 하기
 3. (예정) **Java    Main2.java**  수강정정날 captcha 피하는 기능
 4. (예정) **Python  Main2.py**    수강정정날 captcha 피하는 기능 
 
