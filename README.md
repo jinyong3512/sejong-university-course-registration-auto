@@ -14,10 +14,10 @@
 
 **1.  Git Bash를 이용하여 clone 하기**
    
-    ```
+    
     $ cd .. (C 드라이브가 나올 때까지)
     $ git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
-    ```
+    
 
 
 **2.  chromedriver 다운 받기**
