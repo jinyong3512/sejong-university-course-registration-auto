@@ -40,17 +40,93 @@ driver.get('https://portal.sejong.ac.kr/jsp/login/loginSSL.jsp?rtUrl=sjpt.sejong
 Alert(driver).dismiss()
 Alert(driver).accept()
 
-
-# # ID PW 입력후 로그인 버튼 클릭
-driver.find_element_by_xpath("/html/body/form/div[2]/div/div[2]/div[1]/input").send_keys(ID)
-driver.find_element_by_xpath("/html/body/form/div[2]/div/div[2]/div[2]/input").send_keys(PW)
+# ID PW 입력후 로그인 버튼 클릭
+driver.find_element_by_xpath(
+    "/html/body/form/div[2]/div/div[2]/div[1]/input").send_keys(ID)
+driver.find_element_by_xpath(
+    "/html/body/form/div[2]/div/div[2]/div[2]/input").send_keys(PW)
 driver.find_element_by_xpath("/html/body/form/div[2]/div/div[2]/a").click()
 time.sleep(1)
 
 # 수업/성적 클릭
-driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[1]/td[3]/span").click()
-# 강자조회 및 수강신청 클릭
-driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span").click()
-# 수강신청 클릭
-driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span").click()
+driver.find_element_by_xpath(
+    "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[1]/td[3]/span").click()
 
+# 강좌조회 및 수강신청 클릭
+driver.find_element_by_xpath(
+    "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span").click()
+
+# 수강신청 클릭
+driver.find_element_by_xpath(
+    "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span").click()
+################################################################################################################################
+# NEXT 버튼 클릭
+driver.find_element_by_xpath(
+    "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a").click()
+time.sleep(1)
+
+index = 0
+while True:
+    index = index % len(informations)
+
+    # 학수번호 입력
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]").clear()
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]").send_keys(informations[index][0])
+
+    # 분반 입력
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").clear()
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").sendKeys(informations[index][1])
+
+    # 검색 버튼 클릭
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[5]/a").click()
+    time.sleep(1)
+
+    # 신청 버튼 클릭
+    if informations[index][2] == 1:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[1]/td[2]/button").click()
+    elif informations[index][2] == 2:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[2]/td[2]/button").click()
+    elif informations[index][2] == 3:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[3]/td[2]/button").click()
+    elif informations[index][2] == 4:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[4]/td[2]/button").click()
+    elif informations[index][2] == 5:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[5]/td[2]/button").click()
+    elif informations[index][2] == 6:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[6]/td[2]/button").click()
+    elif informations[index][2] == 7:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[7]/td[2]/button").click()
+    elif informations[index][2] == 8:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[8]/td[2]/button").click()
+    elif informations[index][2] == 9:
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[9]/td[2]/button").click()
+    else:
+        print('분반 입력 오류 입니다. 분반은 1 부터 시작 합니다.')
+        exit()
+    time.sleep(1)
+
+    # "선택한 과목을 수강신청 하시겠습니까?" 확인 클릭
+    driver.find_element_by_xpath(
+        "/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]").click()
+    time.sleep(1)
+
+    # "수강여석이 없습니다" 확인 클릭
+    driver.find_element_by_xpath(
+        "/html/body/div[6]/div[2]/div[1]/div/div[2]/a").click()
+    time.sleep(1)
+
+    index = index+1

@@ -69,8 +69,7 @@ public class Main {
 
         // 수강신청 클릭
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span")).click();
-
-        ////////////////////////// 여기부터 미검증 ///////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // NEXT 버튼 클릭
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a")).click();
         Thread.sleep(1000);
