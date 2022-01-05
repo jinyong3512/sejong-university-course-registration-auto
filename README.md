@@ -37,11 +37,9 @@ chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
 
 *
--자바
-Java IDE로 프로젝트를 열고 Run Main.java
+-자바 : Java IDE로 프로젝트를 열고 Run Main.java
 
--파이썬
-IDE로 .py를 열고 Run Main.py
+-파이썬 : IDE로 .py를 열고 Run Main.py
 
 
 
