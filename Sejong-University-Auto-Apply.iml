@@ -99,5 +99,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="opencv-455" level="project" />
+    <orderEntry type="library" exported="" name="tess4j-3.4.8" level="project" />
   </component>
 </module>
