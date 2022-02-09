@@ -141,6 +141,8 @@ public class Main2 {
             }
             Thread.sleep(1000);
 
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // elem_screen_shot.png 얻는 과정
             // 캡쳐하고 싶은 element 찾기
             WebElement ele = driver.findElement(By.xpath(???));
@@ -204,9 +206,16 @@ public class Main2 {
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[1]")).click();
             Thread.sleep(1000);
 
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // "선택한 과목을 수강신청 하시겠습니까?" 확인 클릭
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]")).click();
             Thread.sleep(1000);
+
+            // 수강 신청 성공시 종료 하기
+            if((driver.findElement(By.xpath(???)).text).equals(???)){
+                driver.quit();
+                System.exit(0);
+            }
 
             // "수강여석이 없습니다" 확인 클릭
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();

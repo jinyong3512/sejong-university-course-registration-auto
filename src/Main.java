@@ -69,7 +69,7 @@ public class Main {
 
         // 수강신청 클릭
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span")).click();
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // NEXT 버튼 클릭
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a")).click();
         Thread.sleep(1000);
@@ -128,6 +128,12 @@ public class Main {
             // "선택한 과목을 수강신청 하시겠습니까?" 확인 클릭
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]")).click();
             Thread.sleep(1000);
+
+            // 수강 신청 성공시 종료 하기
+            if((driver.findElement(By.xpath(???)).text).equals(???)){
+                driver.quit();
+                System.exit(0);
+            }
 
             // "수강여석이 없습니다" 확인 클릭
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();

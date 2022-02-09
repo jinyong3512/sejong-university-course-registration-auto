@@ -124,6 +124,11 @@ while True:
         "/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]").click()
     time.sleep(1)
 
+    # 수강 신청 성공시 종료 하기
+    if dirver.find_element_by_xpath(???).text == ???:
+        driver.quit()
+        quit()
+
     # "수강여석이 없습니다" 확인 클릭
     driver.find_element_by_xpath(
         "/html/body/div[6]/div[2]/div[1]/div/div[2]/a").click()
