@@ -60,10 +60,6 @@ driver.find_element_by_xpath(
 driver.find_element_by_xpath(
     "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span").click()
 
-################################################################################################################################
-################################################################################################################################
-################################################################################################################################
-
 # NEXT 버튼 클릭
 driver.find_element_by_xpath(
     "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a").click()
@@ -83,7 +79,7 @@ while True:
     driver.find_element_by_xpath(
         "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").clear()
     driver.find_element_by_xpath(
-        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").sendKeys(informations[index][1])
+        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").send_keys(informations[index][1])
 
     # 검색 버튼 클릭
     driver.find_element_by_xpath(
@@ -91,31 +87,31 @@ while True:
     time.sleep(1)
 
     # 신청 버튼 클릭
-    if informations[index][2] == 1:
+    if informations[index][2] == '1':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[1]/td[2]/button").click()
-    elif informations[index][2] == 2:
+    elif informations[index][2] == '2':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[2]/td[2]/button").click()
-    elif informations[index][2] == 3:
+    elif informations[index][2] == '3':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[3]/td[2]/button").click()
-    elif informations[index][2] == 4:
+    elif informations[index][2] == '4':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[4]/td[2]/button").click()
-    elif informations[index][2] == 5:
+    elif informations[index][2] == '5':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[5]/td[2]/button").click()
-    elif informations[index][2] == 6:
+    elif informations[index][2] == '6':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[6]/td[2]/button").click()
-    elif informations[index][2] == 7:
+    elif informations[index][2] == '7':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[7]/td[2]/button").click()
-    elif informations[index][2] == 8:
+    elif informations[index][2] == '8':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[8]/td[2]/button").click()
-    elif informations[index][2] == 9:
+    elif informations[index][2] == '9':
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[9]/td[2]/button").click()
     else:
@@ -128,19 +124,9 @@ while True:
         "/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]").click()
     time.sleep(1)
 
-    # 수강 신청 성공시 종료 하기
-    if dirver.find_element_by_xpath(???).text == ???:
-        driver.quit()
-        quit()
-
-    # "수강여석이 없습니다" 확인 클릭
+    # "수강여석이 없습니다" 확인 클릭 or "신청 되었습니다 재조회 하시겠습니까?" 취소 클릭
     driver.find_element_by_xpath(
         "/html/body/div[6]/div[2]/div[1]/div/div[2]/a").click()
     time.sleep(1)
 
     index = index+1
-
-
-################################################################################################################################
-################################################################################################################################
-################################################################################################################################
