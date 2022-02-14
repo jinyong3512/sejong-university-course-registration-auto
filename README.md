@@ -18,7 +18,6 @@ $ cd ..
 $ cd .. 
 $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
 $ Updating files: 100% (7645/7645), done. (라고 나오면 그때부터 사용 가능)
-
 ```    
 
 
