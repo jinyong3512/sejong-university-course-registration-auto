@@ -43,7 +43,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 ## 4.  실행 도구
 
 ### Java  
->IDE로 프로젝트를 열고 **Run Main.java**
+>>IDE로 프로젝트를 열고 **Run Main.java**
 
 ### Python  
 >1. cmd 열고 'pip install selenium'
