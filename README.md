@@ -16,10 +16,8 @@
 $ cd .. 
 $ cd .. 
 $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
-$ Updating files: 100% (7645/7645), done. (라고 나오면 그때부터 사용 가능)
 ```    
-
-
+(Updating files: 100% (7645/7645), done. 라고 나오면 그때부터 사용 가능)
 
 
 ## 2.  chromedriver 다운 받기
@@ -30,7 +28,7 @@ $ Updating files: 100% (7645/7645), done. (라고 나오면 그때부터 사용 
 
 chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
-프로젝트 안에 chromedriver.exe를 자신의 chromedriver.exe로 덮어주세요.
+C드라이브 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 다운받은 chromedriver.exe로 덮어주세요.
 
 
 
@@ -44,19 +42,12 @@ chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
 ## 4.  실행 도구
 
-### 자바  
-IDE로 프로젝트를 열고 **Run Main.java or Run Main2.java**
+### Java  
+IDE로 프로젝트를 열고! **Run Main.java**
 
-### 파이썬  
+### Python  
 1. cmd 열고 'pip install selenium'
-2. IDE로 **Run Main.py or Run Main2.py**
-
-
-
-
-# 📧 연락 수단
-wlsdyd4@naver.com
-
+2. IDE로 **Run Main.py**
 
 # :page_with_curl: 라이센스
 APACHE LICENSE, VERSION 2.0
