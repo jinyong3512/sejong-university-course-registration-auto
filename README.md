@@ -1,10 +1,11 @@
 <p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을 통해 수강신청을 계속 합니다.</p>
 
 # :star: 특징
-## JAVA
+## Main.java
 1. (예정) 수강신청 계속 하기
 2. (예정) 수강정정기간 보안문자 뚫기 
-## PYTHON
+
+## Main.py
 1. (예정) 수강신청 계속 하기
 
 # :desktop_computer: 설치 환경
