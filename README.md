@@ -43,7 +43,7 @@ C드라이브 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 
 ## 4.  실행 도구
 
 ### Java  
-IDE로 프로젝트를 열고! **Run Main.java**
+IDE로 프로젝트를 열고 **Run Main.java**
 
 ### Python  
 1. cmd 열고 'pip install selenium'
