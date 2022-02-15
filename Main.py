@@ -12,7 +12,7 @@ import time
 # 학번과 비밀번호 수강신청 정보 설정
 ID = input('ID를 입력하세요 ')
 PW = input('PW를 입력하세요 ')
-print('(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    그만 입력 하려면 X를 입력하세요')
+print('(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    [그만 입력 하려면 X를 입력하세요]')
 informations = []
 while True:
     input_line = input()
@@ -48,38 +48,63 @@ driver.find_element_by_xpath(
 driver.find_element_by_xpath("/html/body/form/div[2]/div/div[2]/a").click()
 time.sleep(1)
 
-# 수업/성적 클릭
-driver.find_element_by_xpath(
-    "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[1]/td[3]/span").click()
+# Simple_GUI 인지 검사 하기
+Simple_GUI = False;
+if driver.find_element_by_xpath('/html/body/div[1]/div[3]/div/div[2]/ul/li/div[1]/a').text == "수강신청":
+    Simple_GUI = True;
 
-# 강좌조회 및 수강신청 클릭
-driver.find_element_by_xpath(
-    "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span").click()
+if Simple_GUI:
+    # NEXT 버튼 클릭
+    driver.find_element_by_xpath('/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/a').click();
+    time.sleep(1)
 
-# 수강신청 클릭
-driver.find_element_by_xpath(
-    "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span").click()
+else:
+    # 수업/성적 클릭
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[1]/td[3]/span").click()
 
-# NEXT 버튼 클릭
-driver.find_element_by_xpath(
-    "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a").click()
-time.sleep(1)
+    # 강좌조회 및 수강신청 클릭
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span").click()
+
+    # 수강신청 클릭
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span").click()
+
+    # NEXT 버튼 클릭
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a").click()
+    time.sleep(1)
 
 index = 0
 while True:
     index = index % len(informations)
 
-    # 학수번호 입력
-    driver.find_element_by_xpath(
-        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]").clear()
-    driver.find_element_by_xpath(
-        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]").send_keys(informations[index][0])
+    if Simple_GUI:
+        # 학수번호 입력
+        driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]").clear()
+        driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]").send_keys(informations[index][0])
 
-    # 분반 입력
-    driver.find_element_by_xpath(
-        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").clear()
-    driver.find_element_by_xpath(
-        "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").send_keys(informations[index][1])
+        # 분반 입력
+        driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").clear()
+        driver.find_element_by_xpath(
+        "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").send_keys(informations[index][1])
+    
+    else:
+        # 학수번호 입력
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]").clear()
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]").send_keys(informations[index][0])
+    
+        # 분반 입력
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").clear()
+        driver.find_element_by_xpath(
+            "/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]").send_keys(informations[index][1])
 
     # 검색 버튼 클릭
     driver.find_element_by_xpath(

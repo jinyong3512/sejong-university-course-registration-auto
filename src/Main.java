@@ -6,10 +6,26 @@ import org.openqa.selenium.By;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import javax.imageio.ImageIO;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+
+import org.opencv.core.Mat;
+import org.opencv.core.Size;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
+
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) throws InterruptedException, IOException, TesseractException {
 
         // 학번과 비밀번호 수강신청 정보 설정
         Scanner scan = new Scanner(System.in);
@@ -17,7 +33,7 @@ public class Main {
         String ID = scan.nextLine();
         System.out.print("PW를 입력하세요 ");
         String PW = scan.nextLine();
-        System.out.println("(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    그만 입력 하려면 X를 입력하세요");
+        System.out.println("(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    [그만 입력 하려면 X를 입력하세요]");
         ArrayList<ArrayList<String>> informations = new ArrayList<ArrayList<String>>();
         while (true) {
             String input_line = scan.nextLine();
@@ -61,30 +77,50 @@ public class Main {
         driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/a")).click();
         Thread.sleep(1000);
 
-        // 수업/성적 클릭
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[1]/td[3]/span")).click();
+        // Simple_GUI 인지 검사 하기
+        boolean Simple_GUI = false;
+        if (driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/ul/li/div[1]/a")).getText().equals("수강신청"))
+            Simple_GUI = true;
 
-        // 강좌조회 및 수강신청 클릭
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span")).click();
+        if (Simple_GUI) {
+            // NEXT 버튼 클릭
+            driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/a")).click();
+            Thread.sleep(1000);
+        } else {
+            // 수업/성적 클릭
+            driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[1]/td[3]/span")).click();
 
-        // 수강신청 클릭
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span")).click();
+            // 강좌조회 및 수강신청 클릭
+            driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[1]/td[3]/span")).click();
 
-        // NEXT 버튼 클릭
-        driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a")).click();
-        Thread.sleep(1000);
+            // 수강신청 클릭
+            driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div/div[1]/table/tbody/tr[2]/td[2]/div/div[4]/table/tbody/tr/td[3]/span")).click();
 
+            // NEXT 버튼 클릭
+            driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a")).click();
+            Thread.sleep(1000);
+        }
         int index = 0;
         while (true) {
             index = index % informations.size();
 
-            // 학수번호 입력
-            driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]")).clear();
-            driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]")).sendKeys(informations.get(index).get(0));
+            if (Simple_GUI) {
+                // 학수번호 입력
+                driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]")).clear();
+                driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]")).sendKeys(informations.get(index).get(0));
 
-            // 분반 입력
-            driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]")).clear();
-            driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]")).sendKeys(informations.get(index).get(1));
+                // 분반 입력
+                driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]")).clear();
+                driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]")).sendKeys(informations.get(index).get(1));
+            } else {
+                // 학수번호 입력
+                driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]")).clear();
+                driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[1]")).sendKeys(informations.get(index).get(0));
+
+                // 분반 입력
+                driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]")).clear();
+                driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[3]/div[3]/input[2]")).sendKeys(informations.get(index).get(1));
+            }
 
             // 검색 버튼 클릭
             driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[5]/a")).click();
@@ -124,6 +160,77 @@ public class Main {
                     System.exit(0);
             }
             Thread.sleep(1000);
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//            // elem_screen_shot.png 얻는 과정
+//            // 캡쳐하고 싶은 element 찾기
+//            WebElement ele = driver.findElement(By.xpath(???));
+//
+//            // Get entire page screenshot
+//            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//            BufferedImage fullImg = ImageIO.read(screenshot);
+//
+//            // Get the location of element on the page
+//            Point point = ele.getLocation();
+//
+//            // Get width and height of the element
+//            int eleWidth = ele.getSize().getWidth();
+//            int eleHeight = ele.getSize().getHeight();
+//
+//            // Crop the entire page screenshot to get only element screenshot
+//            BufferedImage eleScreenshot = fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
+//
+//            // Save File to disk
+//            ImageIO.write(eleScreenshot, "png", new File("elem_screen_shot.png"));
+//
+//            // OCR dll 파일 시스템 로드
+//            System.load("C://Sejong-University-Auto-Apply//opencv//build//java//x64//opencv_java455.dll");
+//
+//            // Gray Scale
+//            Mat image = Imgcodecs.imread("elem_screen_shot.png");
+//            Mat imageGray = new Mat();
+//            Imgproc.cvtColor(image, imageGray, Imgproc.COLOR_RGB2GRAY);
+//
+//            // Resize
+//            Mat imageResize = new Mat();
+//            Size size = new Size(2000, 1000);
+//            Imgproc.resize(imageGray, imageResize, size);
+//
+//            // Equalize
+//            Mat imageEqualizedGray = new Mat();
+//            Imgproc.equalizeHist(imageResize,imageEqualizedGray);
+//
+//            // Binarization
+//            Mat imageBinarizationGray = new Mat();
+//            Imgproc.threshold(imageEqualizedGray,imageBinarizationGray,1,255,Imgproc.THRESH_BINARY);
+//            Imgcodecs.imwrite("C://Sejong-University-Auto-Apply//result.png",imageBinarizationGray);
+//
+//            // 인식시키기
+//            String datapath = "C://Sejong-University-Auto-Apply//Tess4J";
+//            String testResourcesDataPath= "C://Sejong-University-Auto-Apply//Tess4J//tessdata";
+//            Tesseract instance = new Tesseract();
+//            instance.setDatapath(new File(datapath).getPath());
+//            instance.setLanguage("eng");
+//            ImageIO.scanForPlugins();
+//            File imageFile = new File("C://Sejong-University-Auto-Apply//result.png");
+//            String result = instance.doOCR(imageFile);
+//
+//            // 문자열 중 숫자만 뽑기
+//            result = result.replaceAll("[^0-9]", "");
+//
+//            // 숫자 판독 결과 입력
+//            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[2]/input")).sendKeys(result);
+//
+//            // 코드 입력 버튼 클릭
+//            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[1]")).click();
+//            Thread.sleep(1000);
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // "선택한 과목을 수강신청 하시겠습니까?" 확인 클릭
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]")).click();
