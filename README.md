@@ -8,9 +8,6 @@
 ## Main.py
 1. (예정) 수강신청 계속하기
 
-# :desktop_computer: 설치 환경
-    Java or Python
-
 
 # :white_check_mark: 실행방법
 
