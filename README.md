@@ -9,6 +9,7 @@
 >1. (예정) 수강신청 계속하기
 
 
+
 # :white_check_mark: 실행방법
 
 ## 1.  Git Bash를 이용하여 clone 하기 
