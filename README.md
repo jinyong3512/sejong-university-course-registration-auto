@@ -23,8 +23,11 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 ## 2.  chromedriver 다운 받기
 
 >본인 컴퓨터의 크롬 버전을 확인한 후 chromedriver.exe를 다운로드합니다.
+
 >크롬 버전 확인 방법: https://blog.naver.com/kiddwannabe/221539689821
+
 >chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
+
 >C드라이브 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 다운받은 chromedriver.exe로 덮어주세요.
 
 
