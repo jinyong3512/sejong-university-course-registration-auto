@@ -29,7 +29,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 >chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 
->C드라이브 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 다운받은 chromedriver.exe로 덮어주세요.
+>C드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 다운받은 chromedriver.exe로 덮어주세요.
 
 
 
@@ -48,7 +48,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 ### Python  
 >1. cmd 열고 'pip install selenium'
->2. IDE로 **Run Main.py**
+>2. IDE로 프로젝트를 열고 **Run Main.py**
 
 # 😞 한계
 > 여러 과목을 입력 해놔도 하나라도 성공할 시 프로그램이 멈춥니다.
