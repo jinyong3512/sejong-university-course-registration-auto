@@ -27,7 +27,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 >
 >2. 압축 풀기
 >
->3. 폴더명 Sejong-University-Auto-Apply로 바꾸고 C드라이브에 위치 시켜주기
+>3. 폴더명 'Sejong-University-Auto-Apply'로 바꾸고 C드라이브에 위치 시켜주기
 >
 >(C:\Sejong-University-Auto-Apply\chromedriver.exe 이런식으로 위치하게)
 
