@@ -23,11 +23,13 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 ## 1. Git Bash 없으면 Download ZIP 
 
 ![image](https://user-images.githubusercontent.com/88269663/154381764-ad8874b1-7f53-4ad5-95db-6181cd728d58.png)
->Code -> Download ZIP
+>1. Code -> Download ZIP 
 >
->폴더명 Sejong-University-Auto-Apply로 바꾸고 C드라이브에 위치 시켜주기
+>2. 압축 풀기
 >
->C:\Sejong-University-Auto-Apply\chromedriver.exe 이런식으로 되게
+>3. 폴더명 Sejong-University-Auto-Apply로 바꾸고 C드라이브에 위치 시켜주기
+>
+>(C:\Sejong-University-Auto-Apply\chromedriver.exe 이런식으로 위치하게)
 
 ## 2.  chromedriver 다운 받기
 
