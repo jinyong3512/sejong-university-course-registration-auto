@@ -8,6 +8,7 @@
 ## Main.py
 >1. (예정) 수강신청 계속하기
 
+![순서](https://user-images.githubusercontent.com/88269663/154381607-5189f715-7e7c-4265-9179-198b6032c7dc.png)
 
 
 # :white_check_mark: 실행방법
@@ -15,7 +16,8 @@
 ## 1.  Git Bash를 이용하여 clone 하기 
 ```    
 $ cd .. 
-$ cd .. 
+$ cd .. ![Uploading 순서.png…]()
+
 $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
 ```    
 >[Updating files: 100% (7645/7645), done.] 라고 나오면 그때부터 사용 가능
