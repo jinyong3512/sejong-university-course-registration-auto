@@ -58,7 +58,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 >1. cmd 열고 'pip install selenium'
 >2. IDE로 프로젝트를 열고 **Run Main.py**
 >(꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
->
+
 # 😞 한계
 > 여러 과목을 입력 해놔도 하나라도 성공할 시 프로그램이 멈춥니다.
 
