@@ -8,20 +8,25 @@
 ## Main.py
 >1. (예정) 수강신청 계속하기
 
-![순서](https://user-images.githubusercontent.com/88269663/154381607-5189f715-7e7c-4265-9179-198b6032c7dc.png)
 
 
 # :white_check_mark: 실행방법
 
-## 1.  Git Bash를 이용하여 clone 하기 
+## 1.  Git Bash를 이용하여 clone 하기 or Download ZIP
 ```    
 $ cd .. 
-$ cd .. ![Uploading 순서.png…]()
+$ cd .. 
 
 $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
 ```    
 >[Updating files: 100% (7645/7645), done.] 라고 나오면 그때부터 사용 가능
 
+##or
+
+![image](https://user-images.githubusercontent.com/88269663/154381764-ad8874b1-7f53-4ad5-95db-6181cd728d58.png)
+>Code -> Download ZIP
+>폴더명 Sejong-University-Auto-Apply로 바꾸고 C드라이브에 위치 시켜주기
+>C:\Sejong-University-Auto-Apply\chromedriver.exe 이런식으로 되게
 
 ## 2.  chromedriver 다운 받기
 
@@ -47,11 +52,13 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 ### Java  
 >IDE로 프로젝트를 열고 **Run Main.java**
+>(꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
 
 ### Python  
 >1. cmd 열고 'pip install selenium'
 >2. IDE로 프로젝트를 열고 **Run Main.py**
-
+>(꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
+>
 # 😞 한계
 > 여러 과목을 입력 해놔도 하나라도 성공할 시 프로그램이 멈춥니다.
 
