@@ -60,6 +60,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 ### Python  
 >1. cmd 열고 'pip install selenium'
 >2. IDE로 프로젝트를 열고 **Run Main.py** or Edit with idle로 열어 Run
+>
 >(IDE로 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
 
 # 😞 한계
