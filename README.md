@@ -12,7 +12,7 @@
 
 # :white_check_mark: 실행방법
 
-## 1.  Git Bash를 이용하여 clone
+## 1.  Git Bash를 이용하여 clone or Git Bash가 없다면 아래 참고
 ```    
 $ cd .. 
 $ cd .. 
@@ -20,7 +20,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 ```    
 >[Updating files: 100% (7645/7645), done.] 라고 나오면 그때부터 사용 가능
 
-## 1. Git Bash 없으면 Download ZIP 
+## 1.참고) Git Bash 없으면 Download ZIP 
 
 ![image](https://user-images.githubusercontent.com/88269663/154381764-ad8874b1-7f53-4ad5-95db-6181cd728d58.png)
 >1. Code -> Download ZIP 
@@ -59,11 +59,9 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 ### Python  
 >1. cmd 열고 'pip install selenium'
->2. IDE로 프로젝트를 열고 **Run Main.py**
+>2. IDE로 프로젝트를 열고 **Run Main.py** or **Main.py** 오른쪽 마우스 눌러서 **Edit with idle**로 열어서 **Run**
 >
->(IDE로 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
->
->2. or **Main.py** 오른쪽 마우스 눌러서 **Edit with idle**로 열어서 **Run**
+>(IDE로 열려면 꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
 
 # 😞 한계
 > 여러 과목을 입력 해놔도 하나라도 성공할 시 프로그램이 멈춥니다.
