@@ -12,7 +12,7 @@
 
 # :white_check_mark: 실행방법
 
-## 1.  Git Bash를 이용하여 clone or Git Bash가 없다면 아래 참고
+## 1.  Git Bash를 이용하여 clone 혹은 Git Bash가 없다면 아래 참고
 ```    
 $ cd .. 
 $ cd .. 
@@ -59,7 +59,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 ### Python  
 >1. cmd 열고 'pip install selenium'
->2. IDE로 프로젝트를 열고 **Run Main.py** or **Main.py** 오른쪽 마우스 눌러서 **Edit with idle**로 열어서 **Run**
+>2. IDE로 프로젝트를 열고 **Run Main.py** 혹은 **Main.py** 오른쪽 마우스 눌러서 **Edit with idle**로 열어서 **Run**
 >
 >(IDE로 열려면 꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
 
