@@ -18,7 +18,7 @@ $ cd ..
 $ cd .. 
 $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
 ```    
->[Updating files: 100% (7645/7645), done.] 라고 나오면 그때부터 사용 가능
+>"Updating files: 100% (7645/7645), done." 라고 나오면 그때부터 사용 가능
 
 ## 1. (참고) Git Bash 없으면 Download ZIP 
 
@@ -27,7 +27,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 >
 >2. 압축 풀기
 >
->3. 폴더명 'Sejong-University-Auto-Apply'로 바꾸고 C드라이브에 위치 시켜주기
+>3. 폴더명 "Sejong-University-Auto-Apply"로 바꾸고 C드라이브에 위치 시켜주기
 >
 >(C:\Sejong-University-Auto-Apply\chromedriver.exe 이런식으로 위치하게)
 
@@ -55,7 +55,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 ### Java  
 >IDE로 프로젝트를 열고 **Run Main.java**
->**꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !**
+>(꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
 
 ### Python  
 >1. cmd 열고 'pip install selenium'
