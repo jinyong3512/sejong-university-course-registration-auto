@@ -20,7 +20,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 ```    
 >[Updating files: 100% (7645/7645), done.] 라고 나오면 그때부터 사용 가능
 
-## 1.참고) Git Bash 없으면 Download ZIP 
+## 1. (참고) Git Bash 없으면 Download ZIP 
 
 ![image](https://user-images.githubusercontent.com/88269663/154381764-ad8874b1-7f53-4ad5-95db-6181cd728d58.png)
 >1. Code -> Download ZIP 
