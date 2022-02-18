@@ -65,6 +65,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 # 😞 한계
 > 1.여러 과목을 입력 해놔도 하나라도 성공할 시 프로그램이 멈춥니다.
+> 
 > 2.학수 번호 검색 시 여러 과목이 뜰 경우 예를 들어 순번 3번이 성공할 경우 순번 4번에 있던 게 3번이 되기 때문에 수강신청에 성공했지만 계속 신청할 수 있습니다.
 
 # :page_with_curl: 라이센스
