@@ -2,11 +2,11 @@
 
 # :star: 특징
 ## Main.java
->1. (완료) 수강신청 계속하기
->2. (예정) 수강정정기간 보안 문자 뚫기 
+>1. [완료] 수강신청 계속하기
+>2. [예정] 수강정정기간 보안 문자 뚫기 
 
 ## Main.py
->1. (완료) 수강신청 계속하기
+>1. [완료] 수강신청 계속하기
 
 
 
@@ -55,7 +55,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 ### Java  
 >IDE로 프로젝트를 열고 **Run Main.java**
->(꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !)
+>**꼭 폴더 열기로 Sejong-University-Auto-Apply 열어야함 !**
 
 ### Python  
 >1. cmd 열고 'pip install selenium'
