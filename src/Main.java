@@ -77,6 +77,10 @@ public class Main {
         driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/a")).click();
         Thread.sleep(1000);
 
+        // 해상도 검사 하기
+        if(driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("※ 화면해상도는 1280x1024에 최적화 되어 있습니다. 최적화 해상도보다 작은 창을 이용하실경우 스크롤이 생성되어 이용에 불편하실 수 있습니다."))
+            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
+
         // Simple_GUI 인지 검사 하기
         boolean Simple_GUI = false;
         if (driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/ul/li/div[1]/a")).getText().equals("수강신청"))
@@ -165,68 +169,68 @@ public class Main {
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//            // elem_screen_shot.png 얻는 과정
-//            // 캡쳐하고 싶은 element 찾기
-//            WebElement ele = driver.findElement(By.xpath(???));
-//
-//            // Get entire page screenshot
-//            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-//            BufferedImage fullImg = ImageIO.read(screenshot);
-//
-//            // Get the location of element on the page
-//            Point point = ele.getLocation();
-//
-//            // Get width and height of the element
-//            int eleWidth = ele.getSize().getWidth();
-//            int eleHeight = ele.getSize().getHeight();
-//
-//            // Crop the entire page screenshot to get only element screenshot
-//            BufferedImage eleScreenshot = fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
-//
-//            // Save File to disk
-//            ImageIO.write(eleScreenshot, "png", new File("elem_screen_shot.png"));
-//
-//            // OCR dll 파일 시스템 로드
-//            System.load("C://Sejong-University-Auto-Apply//opencv//build//java//x64//opencv_java455.dll");
-//
-//            // Gray Scale
-//            Mat image = Imgcodecs.imread("elem_screen_shot.png");
-//            Mat imageGray = new Mat();
-//            Imgproc.cvtColor(image, imageGray, Imgproc.COLOR_RGB2GRAY);
-//
-//            // Resize
-//            Mat imageResize = new Mat();
-//            Size size = new Size(2000, 1000);
-//            Imgproc.resize(imageGray, imageResize, size);
-//
-//            // Equalize
-//            Mat imageEqualizedGray = new Mat();
-//            Imgproc.equalizeHist(imageResize,imageEqualizedGray);
-//
-//            // Binarization
-//            Mat imageBinarizationGray = new Mat();
-//            Imgproc.threshold(imageEqualizedGray,imageBinarizationGray,1,255,Imgproc.THRESH_BINARY);
-//            Imgcodecs.imwrite("C://Sejong-University-Auto-Apply//result.png",imageBinarizationGray);
-//
-//            // 인식시키기
-//            String datapath = "C://Sejong-University-Auto-Apply//Tess4J";
-//            String testResourcesDataPath= "C://Sejong-University-Auto-Apply//Tess4J//tessdata";
-//            Tesseract instance = new Tesseract();
-//            instance.setDatapath(new File(datapath).getPath());
-//            instance.setLanguage("eng");
-//            ImageIO.scanForPlugins();
-//            File imageFile = new File("C://Sejong-University-Auto-Apply//result.png");
-//            String result = instance.doOCR(imageFile);
-//
-//            // 문자열 중 숫자만 뽑기
-//            result = result.replaceAll("[^0-9]", "");
-//
-//            // 숫자 판독 결과 입력
-//            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[2]/input")).sendKeys(result);
-//
-//            // 코드 입력 버튼 클릭
-//            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[1]")).click();
-//            Thread.sleep(1000);
+            // elem_screen_shot.png 얻는 과정
+            // 캡쳐하고 싶은 element 찾기
+            WebElement ele = driver.findElement(By.xpath("???"));
+
+            // Get entire page screenshot
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            BufferedImage fullImg = ImageIO.read(screenshot);
+
+            // Get the location of element on the page
+            Point point = ele.getLocation();
+
+            // Get width and height of the element
+            int eleWidth = ele.getSize().getWidth();
+            int eleHeight = ele.getSize().getHeight();
+
+            // Crop the entire page screenshot to get only element screenshot
+            BufferedImage eleScreenshot = fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
+
+            // Save File to disk
+            ImageIO.write(eleScreenshot, "png", new File("elem_screen_shot.png"));
+
+            // OCR dll 파일 시스템 로드
+            System.load("C://Sejong-University-Auto-Apply//opencv//build//java//x64//opencv_java455.dll");
+
+            // Gray Scale
+            Mat image = Imgcodecs.imread("elem_screen_shot.png");
+            Mat imageGray = new Mat();
+            Imgproc.cvtColor(image, imageGray, Imgproc.COLOR_RGB2GRAY);
+
+            // Resize
+            Mat imageResize = new Mat();
+            Size size = new Size(2000, 1000);
+            Imgproc.resize(imageGray, imageResize, size);
+
+            // Equalize
+            Mat imageEqualizedGray = new Mat();
+            Imgproc.equalizeHist(imageResize,imageEqualizedGray);
+
+            // Binarization
+            Mat imageBinarizationGray = new Mat();
+            Imgproc.threshold(imageEqualizedGray,imageBinarizationGray,1,255,Imgproc.THRESH_BINARY);
+            Imgcodecs.imwrite("C://Sejong-University-Auto-Apply//result.png",imageBinarizationGray);
+
+            // 인식시키기
+            String datapath = "C://Sejong-University-Auto-Apply//Tess4J";
+            String testResourcesDataPath= "C://Sejong-University-Auto-Apply//Tess4J//tessdata";
+            Tesseract instance = new Tesseract();
+            instance.setDatapath(new File(datapath).getPath());
+            instance.setLanguage("eng");
+            ImageIO.scanForPlugins();
+            File imageFile = new File("C://Sejong-University-Auto-Apply//result.png");
+            String result = instance.doOCR(imageFile);
+
+            // 문자열 중 숫자만 뽑기
+            result = result.replaceAll("[^0-9]", "");
+
+            // 숫자 판독 결과 입력
+            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[2]/input")).sendKeys(result);
+
+            // 코드 입력 버튼 클릭
+            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[1]")).click();
+            Thread.sleep(1000);
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

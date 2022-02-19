@@ -48,14 +48,18 @@ driver.find_element_by_xpath(
 driver.find_element_by_xpath("/html/body/form/div[2]/div/div[2]/a").click()
 time.sleep(1)
 
+# 해상도 검사 하기
+if driver.find_element_by_xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div").text == "※ 화면해상도는 1280x1024에 최적화 되어 있습니다. 최적화 해상도보다 작은 창을 이용하실경우 스크롤이 생성되어 이용에 불편하실 수 있습니다.":
+    driver.find_element_by_xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a").click()
+
 # Simple_GUI 인지 검사 하기
-Simple_GUI = False;
+Simple_GUI = False
 if driver.find_element_by_xpath('/html/body/div[1]/div[3]/div/div[2]/ul/li/div[1]/a').text == "수강신청":
-    Simple_GUI = True;
+    Simple_GUI = True
 
 if Simple_GUI:
     # NEXT 버튼 클릭
-    driver.find_element_by_xpath('/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/a').click();
+    driver.find_element_by_xpath('/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/a').click()
     time.sleep(1)
 
 else:
