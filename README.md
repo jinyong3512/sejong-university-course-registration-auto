@@ -42,6 +42,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 >C드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 다운받은 chromedriver.exe로 덮어주세요.
 
 ## 3. 평소 로그인 시 해상도 알림 안뜨게 해상도 조절하기
+>https://blog.naver.com/treetree5313/222518599949
 
 ## 4.  보안 프로그램 삭제 하기
 
