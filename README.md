@@ -3,7 +3,7 @@
 # :star: 특징
 ## Main.java
 >1. [완료] 수강신청 계속하기
->2. [완료(검사 필요)] 수강정정기간 보안 문자 뚫기 
+>2. [완료] 수강정정기간 보안 문자 뚫기 
 
 ## Main.py
 >1. [완료] 수강신청 계속하기
@@ -41,9 +41,9 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 >C드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 다운받은 chromedriver.exe로 덮어주세요.
 
+## 3. 평소 로그인 시 해상도 알림 안뜨게 해상도 조절하기
 
-
-## 3.  보안 프로그램 삭제 하기
+## 4.  보안 프로그램 삭제 하기
 
 >학교 로그인할 때 쓰는 키보드 보안 프로그램을 삭제해야 합니다.
 
@@ -51,7 +51,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 
 
-## 4.  실행 도구
+## 5.  실행 도구
 
 ### Java  
 >IDE로 프로젝트를 열고 **Run Main.java**
@@ -62,6 +62,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 >2. IDE로 프로젝트를 열고 **Run Main.py** 혹은 **Main.py** 오른쪽 마우스 눌러서 **Edit with idle**로 열어서 **Run**
 >
 >(IDE로 열려면 꼭 프로젝트로 Sejong-University-Auto-Apply 열어야함 !)
+
 
 # 😞 한계
 > 1. 여러 과목을 입력 해놔도 하나라도 성공할 시 프로그램이 멈춥니다.
