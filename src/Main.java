@@ -77,9 +77,12 @@ public class Main {
         driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/a")).click();
         Thread.sleep(1000);
 
-        // 해상도 검사 하기
-        if(driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("※ 화면해상도는 1280x1024에 최적화 되어 있습니다. 최적화 해상도보다 작은 창을 이용하실경우 스크롤이 생성되어 이용에 불편하실 수 있습니다."))
-            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
+//        try {
+//            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("※ 화면해상도는 1280x1024에 최적화 되어 있습니다. 최적화 해상도보다 작은 창을 이용하실경우 스크롤이 생성되어 이용에 불편하실 수 있습니다.");
+//            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
+//        }catch(Exception e){
+//
+//        }
 
         // Simple_GUI 인지 검사 하기
         boolean Simple_GUI = false;
@@ -165,11 +168,9 @@ public class Main {
             }
             Thread.sleep(1000);
 
-          
-
             // elem_screen_shot.png 얻는 과정
             // 캡쳐하고 싶은 element 찾기
-            WebElement ele = driver.findElement(By.xpath("/html/body/img"));
+            WebElement ele = driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[1]/iframe"));
 
             // Get entire page screenshot
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -179,7 +180,7 @@ public class Main {
             Point point = ele.getLocation();
 
             // Get width and height of the element
-            int eleWidth = ele.getSize().getWidth();
+            int eleWidth = ele.getSize().getWidth()+5;
             int eleHeight = ele.getSize().getHeight();
 
             // Crop the entire page screenshot to get only element screenshot
@@ -225,12 +226,11 @@ public class Main {
 
             // 숫자 판독 결과 입력
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[2]/input")).sendKeys(result);
+            Thread.sleep(1000);
 
             // 코드 입력 버튼 클릭
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[1]")).click();
             Thread.sleep(1000);
-
-          
 
             // "선택한 과목을 수강신청 하시겠습니까?" 확인 클릭
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]")).click();
