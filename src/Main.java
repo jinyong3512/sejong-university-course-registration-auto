@@ -77,12 +77,13 @@ public class Main {
         driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/a")).click();
         Thread.sleep(1000);
 
-//        try {
-//            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("※ 화면해상도는 1280x1024에 최적화 되어 있습니다. 최적화 해상도보다 작은 창을 이용하실경우 스크롤이 생성되어 이용에 불편하실 수 있습니다.");
-//            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
-//        }catch(Exception e){
-//
-//        }
+        // 해상도 이슈
+        try {
+            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("※ 화면해상도는 1280x1024에 최적화 되어 있습니다. 최적화 해상도보다 작은 창을 이용하실경우 스크롤이 생성되어 이용에 불편하실 수 있습니다.");
+            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
+        } catch (Exception e) {
+
+        }
 
         // Simple_GUI 인지 검사 하기
         boolean Simple_GUI = false;
@@ -107,7 +108,10 @@ public class Main {
             driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div[2]/div/div/div[2]/div[2]/div[2]/a")).click();
             Thread.sleep(1000);
         }
+
         int index = 0;
+        int correction_period_flag = -1;
+
         while (true) {
             index = index % informations.size();
 
@@ -168,69 +172,79 @@ public class Main {
             }
             Thread.sleep(1000);
 
-            // elem_screen_shot.png 얻는 과정
-            // 캡쳐하고 싶은 element 찾기
-            WebElement ele = driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[1]/iframe"));
+            if (correction_period_flag == -1) {
+                try {
+                    driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[1]/iframe"));
+                    correction_period_flag = 1;
+                } catch (Exception e) {
+                    correction_period_flag = 0;
+                }
+            }
 
-            // Get entire page screenshot
-            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            BufferedImage fullImg = ImageIO.read(screenshot);
+            if (correction_period_flag == 1) {
+                // 캡쳐하고 싶은 element 찾기
+                WebElement ele = driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[1]/iframe"));
 
-            // Get the location of element on the page
-            Point point = ele.getLocation();
+                // Get entire page screenshot
+                File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                BufferedImage fullImg = ImageIO.read(screenshot);
 
-            // Get width and height of the element
-            int eleWidth = ele.getSize().getWidth()+5;
-            int eleHeight = ele.getSize().getHeight();
+                // Get the location of element on the page
+                Point point = ele.getLocation();
 
-            // Crop the entire page screenshot to get only element screenshot
-            BufferedImage eleScreenshot = fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
+                // Get width and height of the element
+                int eleWidth = ele.getSize().getWidth() + 5;
+                int eleHeight = ele.getSize().getHeight();
 
-            // Save File to disk
-            ImageIO.write(eleScreenshot, "png", new File("elem_screen_shot.png"));
+                // Crop the entire page screenshot to get only element screenshot
+                BufferedImage eleScreenshot = fullImg.getSubimage(point.getX(), point.getY(), eleWidth, eleHeight);
 
-            // OCR dll 파일 시스템 로드
-            System.load("C://Sejong-University-Auto-Apply//opencv//build//java//x64//opencv_java455.dll");
+                // Save File to disk
+                ImageIO.write(eleScreenshot, "png", new File("elem_screen_shot.png"));
 
-            // Gray Scale
-            Mat image = Imgcodecs.imread("elem_screen_shot.png");
-            Mat imageGray = new Mat();
-            Imgproc.cvtColor(image, imageGray, Imgproc.COLOR_RGB2GRAY);
+                // OCR dll 파일 시스템 로드
+                System.load("C://Sejong-University-Auto-Apply//opencv//build//java//x64//opencv_java455.dll");
 
-            // Resize
-            Mat imageResize = new Mat();
-            Size size = new Size(2000, 1000);
-            Imgproc.resize(imageGray, imageResize, size);
+                // Gray Scale
+                Mat image = Imgcodecs.imread("elem_screen_shot.png");
+                Mat imageGray = new Mat();
+                Imgproc.cvtColor(image, imageGray, Imgproc.COLOR_RGB2GRAY);
 
-            // Equalize
-            Mat imageEqualizedGray = new Mat();
-            Imgproc.equalizeHist(imageResize,imageEqualizedGray);
+                // Resize
+                Mat imageResize = new Mat();
+                Size size = new Size(2000, 1000);
+                Imgproc.resize(imageGray, imageResize, size);
 
-            // Binarization
-            Mat imageBinarizationGray = new Mat();
-            Imgproc.threshold(imageEqualizedGray,imageBinarizationGray,1,255,Imgproc.THRESH_BINARY);
-            Imgcodecs.imwrite("C://Sejong-University-Auto-Apply//result.png",imageBinarizationGray);
+                // Equalize
+                Mat imageEqualizedGray = new Mat();
+                Imgproc.equalizeHist(imageResize, imageEqualizedGray);
 
-            // 인식시키기
-            String datapath = "C://Sejong-University-Auto-Apply//Tess4J";
-            String testResourcesDataPath= "C://Sejong-University-Auto-Apply//Tess4J//tessdata";
-            Tesseract instance = new Tesseract();
-            instance.setDatapath(new File(datapath).getPath());
-            instance.setLanguage("eng");
-            ImageIO.scanForPlugins();
-            File imageFile = new File("C://Sejong-University-Auto-Apply//result.png");
-            String result = instance.doOCR(imageFile);
+                // Binarization
+                Mat imageBinarizationGray = new Mat();
+                Imgproc.threshold(imageEqualizedGray, imageBinarizationGray, 1, 255, Imgproc.THRESH_BINARY);
+                Imgcodecs.imwrite("C://Sejong-University-Auto-Apply//result.png", imageBinarizationGray);
 
-            // 문자열 중 숫자만 뽑기
-            result = result.replaceAll("[^0-9]", "");
+                // 인식시키기
+                String datapath = "C://Sejong-University-Auto-Apply//Tess4J";
+                String testResourcesDataPath = "C://Sejong-University-Auto-Apply//Tess4J//tessdata";
+                Tesseract instance = new Tesseract();
+                instance.setDatapath(new File(datapath).getPath());
+                instance.setLanguage("eng");
+                ImageIO.scanForPlugins();
+                File imageFile = new File("C://Sejong-University-Auto-Apply//result.png");
+                String result = instance.doOCR(imageFile);
 
-            // 숫자 판독 결과 입력
-            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[2]/input")).sendKeys(result);
-            Thread.sleep(1000);
+                // 문자열 중 숫자만 뽑기
+                result = result.replaceAll("[^0-9]", "");
 
-            // 코드 입력 버튼 클릭
-            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[1]")).click();
-            Thread.sleep(1000);
+                // 숫자 판독 결과 입력
+                driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div/div[2]/input")).sendKeys(result);
+                Thread.sleep(1000);
+
+                // 코드 입력 버튼 클릭
+                driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[1]")).click();
+                Thread.sleep(1000);
+            }
 
             // "선택한 과목을 수강신청 하시겠습니까?" 확인 클릭
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]")).click();
