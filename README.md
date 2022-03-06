@@ -41,10 +41,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 >C드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 다운받은 chromedriver.exe로 덮어주세요.
 
-## 3. 평소 로그인 시 해상도 알림 안뜨게 해상도 조절하기
->https://blog.naver.com/treetree5313/222518599949
-
-## 4.  보안 프로그램 삭제 하기
+## 3.  보안 프로그램 삭제 하기
 
 >학교 로그인할 때 쓰는 키보드 보안 프로그램을 삭제해야 합니다.
 
@@ -52,7 +49,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 
 
 
-## 5.  실행 도구
+## 4.  실행 도구
 
 ### Java  
 >IDE로 프로젝트를 열고 **Run Main.java**
