@@ -69,6 +69,9 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 > 2. 학수 번호+분반 검색 시 여러 수업이 뜰 경우  
 > 예를 들어 순번 3번이 성공할 경우 순번 4번에 있던 게 3번이 되기 때문에  
 > 수강신청에 성공했지만 안 멈추고 계속 신청할 수 있습니다.
-> 
+>
+> 3. 보안 문자 뚫을 확률이 30% 정도 되는 것 같습니다.
+
+
 # :page_with_curl: 라이센스
 >APACHE LICENSE, VERSION 2.0
