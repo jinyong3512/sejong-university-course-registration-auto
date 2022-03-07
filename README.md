@@ -12,24 +12,13 @@
 
 # :white_check_mark: 실행방법
 
-## 1.  Git Bash를 이용하여 clone 혹은 Git Bash가 없다면 아래 참고
+## 1.  Git Bash를 이용하여 clone
 ```    
 $ cd .. 
 $ cd .. 
 $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
 ```    
 >("Updating files: 100% (7645/7645), done." 라고 나오면 그때부터 사용 가능)
-
-## 1. (참고) Git Bash 없으면 Download ZIP 
-
-![image](https://user-images.githubusercontent.com/88269663/154381764-ad8874b1-7f53-4ad5-95db-6181cd728d58.png)
->1. Code -> Download ZIP 
->
->2. 압축 풀기
->
->3. 폴더명 "Sejong-University-Auto-Apply"로 바꾸고 C드라이브에 위치 시켜주기
->
->(C:\Sejong-University-Auto-Apply\chromedriver.exe 이런 식으로 위치하게)
 
 ## 2.  chromedriver 다운 받기
 
