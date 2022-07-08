@@ -33,12 +33,11 @@ public class Main {
         String ID = scan.nextLine();
         System.out.print("PW를 입력하세요 ");
         String PW = scan.nextLine();
-        System.out.println("(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    [그만 입력 하려면 X를 입력하세요]");
+        System.out.println("(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    [그만 입력 하려면 대문자 X를 입력하세요]");
         ArrayList<ArrayList<String>> informations = new ArrayList<ArrayList<String>>();
         while (true) {
             String input_line = scan.nextLine();
-            if (input_line.equals("X"))
-                break;
+            if (input_line.equals("X")) break;
             ArrayList<String> information = new ArrayList<String>();
             information.add(input_line.split(" ")[0]);
             information.add(input_line.split(" ")[1]);
@@ -77,7 +76,7 @@ public class Main {
         driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/a")).click();
         Thread.sleep(1000);
 
-        // 해상도 이슈
+        // 해상도 이슈 (경고 알림창이 뜰 경우 지우고 지나감)
         try {
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("※ 화면해상도는 1280x1024에 최적화 되어 있습니다. 최적화 해상도보다 작은 창을 이용하실경우 스크롤이 생성되어 이용에 불편하실 수 있습니다.");
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
@@ -85,7 +84,7 @@ public class Main {
 
         }
 
-        // Simple_GUI 인지 검사 하기
+        // Simple_GUI 인지 검사 하기 (열려 있는 탭이 바로 "수강신청"인지 검사)
         boolean Simple_GUI = false;
         if (driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/ul/li/div[1]/a")).getText().equals("수강신청"))
             Simple_GUI = true;
@@ -167,7 +166,7 @@ public class Main {
                     driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[9]/td[2]/button")).click();
                     break;
                 default:
-                    System.out.println("분반 입력 오류 입니다. 분반은 1부터 9까지 입니다.");
+                    System.out.println("검색시 위치 입력 오류 입니다. 학수번호 분반 검색시 몇번째 위치인지 잘 입력하세요.");
                     System.exit(0);
             }
             Thread.sleep(1000);
