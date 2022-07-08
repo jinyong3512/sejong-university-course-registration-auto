@@ -9,10 +9,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.alert import Alert
 import time
 
-# 학번과 비밀번호 수강신청 정보 설정
+# ID PW 수강신청 정보 설정
 ID = input('ID를 입력하세요 ')
 PW = input('PW를 입력하세요 ')
-print('(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    [그만 입력 하려면 X를 입력하세요]')
+print('(학수번호,분반,검색시 몇번째 위치)를 입력하세요 ex)106245 001 1    [그만 입력 하려면 대문자 X를 입력하세요]')
 informations = []
 while True:
     input_line = input()
@@ -144,7 +144,7 @@ while True:
         driver.find_element_by_xpath(
             "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[2]/div[2]/div/div[1]/div/table/tbody/tr[9]/td[2]/button").click()
     else:
-        print('분반 입력 오류 입니다. 분반은 1 부터 시작 합니다.')
+        print('검색 시 위치 오류 입니다. 검색 시 위치를 정확하게 입력 해주세요.')
         exit()
     time.sleep(1)
 
