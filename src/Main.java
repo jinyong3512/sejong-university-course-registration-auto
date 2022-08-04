@@ -24,6 +24,8 @@ import org.opencv.imgproc.Imgproc;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
+import java.awt.Toolkit;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException, TesseractException {
 
@@ -66,19 +68,14 @@ public class Main {
         String URL = "https://portal.sejong.ac.kr/jsp/login/loginSSL.jsp?rtUrl=sjpt.sejong.ac.kr/main/view/Login/doSsoLogin.do?p=";
         driver.get(URL);
 
-        // 키보드 보안 팝업 취소 후 확인
-        driver.switchTo().alert().dismiss();
-        driver.switchTo().alert().accept();
-
         // ID PW 입력후 로그인 버튼 클릭
-        driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/div[1]/input")).sendKeys(ID);
-        driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/div[2]/input")).sendKeys(PW);
-        driver.findElement(By.xpath("/html/body/form/div[2]/div/div[2]/a")).click();
+        driver.findElement(By.xpath("/html/body/form/div/div/div[2]/div[1]/input")).sendKeys(ID);
+        driver.findElement(By.xpath("/html/body/form/div/div/div[2]/div[2]/input")).sendKeys(PW);
+        driver.findElement(By.xpath("/html/body/form/div/div/div[2]/a")).click();
         Thread.sleep(1000);
 
         // 해상도 이슈 (경고 알림창이 뜰 경우 지우고 지나감)
         try {
-            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("※ 화면해상도는 1280x1024에 최적화 되어 있습니다. 최적화 해상도보다 작은 창을 이용하실경우 스크롤이 생성되어 이용에 불편하실 수 있습니다.");
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
         } catch (Exception e) {
 
@@ -249,11 +246,22 @@ public class Main {
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]")).click();
             Thread.sleep(1000);
 
-            // "수강여석이 없습니다" 확인 클릭 or "신청 되었습니다 재조회 하시겠습니까?" 취소 클릭
-            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
-            Thread.sleep(1000);
+            // "수강여석이 없습니다" 확인 클릭
+            if(driver.findElement(By.xpath("")).getText().equals("")){
+                driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
+                Thread.sleep(1000);
+                index++;
+            }
 
-            index++;
+            // "신청 되었습니다 재조회 하시겠습니까?" beep음 울리고 종료하기
+            else{
+                    Toolkit toolkit = Toolkit.getDefaultToolkit();
+                    for( int  i = 0 ; i< 10 ; i++){
+                        toolkit.beep();
+                        Thread.sleep(1000);
+                    }
+                    System.exit(0);
+            }
         }
     }
 }
