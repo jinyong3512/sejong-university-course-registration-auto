@@ -246,8 +246,8 @@ public class Main {
             driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a[2]")).click();
             Thread.sleep(1000);
 
-            // "수강여석이 없습니다" 확인 클릭
-            if(driver.findElement(By.xpath("")).getText().equals("")){
+            // "수강여석이 없습니다!" 확인 클릭
+            if(driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("수강여석이 없습니다!")){
                 driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
                 Thread.sleep(1000);
                 index++;

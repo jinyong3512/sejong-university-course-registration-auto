@@ -158,7 +158,7 @@ while True:
     time.sleep(1)
 
     # "수강여석이 없습니다" 확인 클릭
-    if driver.find_element(By.XPATH,'').text== "":
+    if driver.find_element(By.XPATH,'/html/body/div[6]/div[2]/div[1]/div/div[1]/div').text== "수강여석이 없습니다!":
         driver.find_element(By.XPATH,"/html/body/div[6]/div[2]/div[1]/div/div[2]/a").click()
         time.sleep(1)
         index = index+1
