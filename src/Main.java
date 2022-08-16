@@ -131,7 +131,7 @@ public class Main {
 
             // 검색 버튼 클릭
             driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[5]/a")).click();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             // 신청 버튼 클릭
             switch (informations.get(index).get(2)) {

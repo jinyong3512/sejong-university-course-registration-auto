@@ -117,7 +117,7 @@ while True:
     # 검색 버튼 클릭
     driver.find_element(By.XPATH,
         "/html/body/div[1]/div[3]/div/div[2]/div/div/div/div/div[2]/div[1]/table[2]/tbody/tr[2]/td[5]/a").click()
-    time.sleep(1)
+    time.sleep(2)
 
     # 신청 버튼 클릭
     if informations[index][2] == '1':
