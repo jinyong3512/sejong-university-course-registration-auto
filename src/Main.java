@@ -68,6 +68,12 @@ public class Main {
         String URL = "https://portal.sejong.ac.kr/jsp/login/loginSSL.jsp?rtUrl=sjpt.sejong.ac.kr/main/view/Login/doSsoLogin.do?p=";
         driver.get(URL);
 
+        // 알림창 이슈
+        Thread.sleep(1000);
+        driver.switchTo().alert().dismiss();
+        Thread.sleep(1000);
+        driver.switchTo().alert().accept();
+
         // ID PW 입력후 로그인 버튼 클릭
         driver.findElement(By.xpath("/html/body/form/div/div/div[2]/div[1]/input")).sendKeys(ID);
         driver.findElement(By.xpath("/html/body/form/div/div/div[2]/div[2]/input")).sendKeys(PW);
