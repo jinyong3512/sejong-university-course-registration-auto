@@ -44,12 +44,14 @@ driver.maximize_window()
 driver.get('https://portal.sejong.ac.kr/jsp/login/loginSSL.jsp?rtUrl=sjpt.sejong.ac.kr/main/view/Login/doSsoLogin.do?p=')
 time.sleep(1)
 
-# 알림창 이슈
-time.sleep(1)
-driver.switch_to.alert.dismiss()
-time.sleep(1)
-driver.switch_to.alert.accept()
-
+# 팝업창 이슈
+try:
+    time.sleep(1)
+    driver.switch_to.alert.dismiss()
+    time.sleep(1)
+    driver.switch_to.alert.accept()
+except:
+    print('no issue')
 
 # ID PW 입력후 로그인 버튼 클릭
 driver.find_element(By.XPATH,"/html/body/form/div/div/div[2]/div[1]/input").send_keys(ID)

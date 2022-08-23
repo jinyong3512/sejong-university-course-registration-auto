@@ -68,11 +68,14 @@ public class Main {
         String URL = "https://portal.sejong.ac.kr/jsp/login/loginSSL.jsp?rtUrl=sjpt.sejong.ac.kr/main/view/Login/doSsoLogin.do?p=";
         driver.get(URL);
 
-        // 알림창 이슈
-        Thread.sleep(1000);
-        driver.switchTo().alert().dismiss();
-        Thread.sleep(1000);
-        driver.switchTo().alert().accept();
+        // 팝업창 이슈
+        try {
+            Thread.sleep(1000);
+            driver.switchTo().alert().dismiss();
+            Thread.sleep(1000);
+            driver.switchTo().alert().accept();
+        } catch (Exception e) {
+        }
 
         // ID PW 입력후 로그인 버튼 클릭
         driver.findElement(By.xpath("/html/body/form/div/div/div[2]/div[1]/input")).sendKeys(ID);
@@ -253,20 +256,20 @@ public class Main {
             Thread.sleep(1000);
 
             // "수강여석이 없습니다!" 확인 클릭
-            if(driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("수강여석이 없습니다!")){
+            if (driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[1]/div")).getText().equals("수강여석이 없습니다!")) {
                 driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
                 Thread.sleep(1000);
                 index++;
             }
 
             // "신청 되었습니다 재조회 하시겠습니까?" beep음 울리고 종료하기
-            else{
-                    Toolkit toolkit = Toolkit.getDefaultToolkit();
-                    for( int  i = 0 ; i< 10 ; i++){
-                        toolkit.beep();
-                        Thread.sleep(1000);
-                    }
-                    System.exit(0);
+            else {
+                Toolkit toolkit = Toolkit.getDefaultToolkit();
+                for (int i = 0; i < 10; i++) {
+                    toolkit.beep();
+                    Thread.sleep(1000);
+                }
+                System.exit(0);
             }
         }
     }
