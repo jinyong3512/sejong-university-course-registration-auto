@@ -75,6 +75,7 @@ $ (/c 에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Ap
 # 😞 한계
 >1. 수강신청 변경 기간 CAPTCHA 뚫을 확률이 30% 정도 되는 것 같습니다.
 >2. Python은 CAPTCHA 구현 못 했습니다.
+>3. 평소 학사정보시스템 접속 시 해상도 최적화 알림 안뜨게 
 
 # :page_with_curl: 라이센스
 >APACHE LICENSE, VERSION 2.0
