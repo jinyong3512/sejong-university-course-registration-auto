@@ -34,11 +34,12 @@ $ (/c에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-App
 >
 >chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 >
->C 드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를<br>자신이 다운로드한 chromedriver.exe로 덮어주세요
+>C 드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를<br>
+>자신이 다운로드한 chromedriver.exe로 덮어주세요
 
 ## 3.  보안 프로그램 삭제하기
 
->학교 로그인할 때 쓰는 키보드 보안 프로그램을 삭제해야 합니다
+>학교 로그인할 때 쓰는 키보드 보안 프로그램을 삭제해야 합니다<br>
 >프로그램 추가/제거에서 nProtect Online Security V1.0을 제거해 주세요
  
 ## 4. 디스플레이 배율 변경
@@ -47,8 +48,7 @@ $ (/c에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-App
 ## 5.  실행 도구
 
 ### Java  
->IDE로 프로젝트를 열고 **Run Main.java**
->
+>IDE로 프로젝트를 열고 **Run Main.java**<br>
 >(꼭 프로젝트로 Sejong-University-Auto-Apply 열어야 함)
 
 # 😞 한계
