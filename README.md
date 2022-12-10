@@ -1,4 +1,4 @@
-<p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을 통한 수강신청 매크로입니다</p>
+<p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을이용한 수강신청 매크로입니다</p>
 
 # :star: 특징
 
@@ -55,13 +55,13 @@ $ (/c에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-App
 >
 >프로그램 추가/제거에서 nProtect Online Security V1.0을 제거해 주세요
  
-## 4
-시스템 -> 디스플레이 설정에서 배율 100%로 설정
+## 4. 디스플레이 배율 변경
+>시스템 -> 디스플레이 설정에서 배율 100%로 설정
 
 ## 5.  실행 도구
 
 ### Java  
->1. IDE로 프로젝트를 열고 **Run Main.java**
+>IDE로 프로젝트를 열고 **Run Main.java**
 >
 >(꼭 프로젝트로 Sejong-University-Auto-Apply 열어야 함!)
 
