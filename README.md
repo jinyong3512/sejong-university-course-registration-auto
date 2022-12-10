@@ -39,7 +39,6 @@ $ (/c에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-App
 ## 3.  보안 프로그램 삭제하기
 
 >학교 로그인할 때 쓰는 키보드 보안 프로그램을 삭제해야 합니다
->
 >프로그램 추가/제거에서 nProtect Online Security V1.0을 제거해 주세요
  
 ## 4. 디스플레이 배율 변경
