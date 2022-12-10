@@ -34,7 +34,7 @@ $ (/c에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-App
 >
 >chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
 >
->C 드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를 자신이 다운로드한 chromedriver.exe로 덮어주세요
+>C 드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를<br>자신이 다운로드한 chromedriver.exe로 덮어주세요
 
 ## 3.  보안 프로그램 삭제하기
 
