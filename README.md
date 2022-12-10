@@ -1,4 +1,4 @@
-<p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을이용한 수강신청 매크로입니다</p>
+<p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을 이용한 수강신청 매크로입니다</p>
 
 # :star: 특징
 
@@ -15,7 +15,8 @@
 >6. 수강신청 조회 페이지까지 이동하기
 >7. 학수 번호 분반 입력 후 검색 후 몇 번째 위치인지에 따라 신청 버튼 클릭
 >8. 수강신청 변경 기간인지 검사 (기간이라면 CAPTCHA 처리)
->9. 수강신청 클릭 마무리하기 (성공 시 비프음 1분 알림 이후 종료) (실패 시 7번으로 돌아가기)
+>9. 수강신청 클릭 마무리하기 
+>10. 성공 시 비프음 1분 알림 이후 종료 or 실패 시 7번으로 돌아가기
 
 # :white_check_mark: 실행 방법
 
