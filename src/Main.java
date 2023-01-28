@@ -88,12 +88,6 @@ public class Main {
         driver.findElement(By.xpath("/html/body/form/div/div/div[2]/div[2]/input")).sendKeys(pw);
         driver.findElement(By.xpath("/html/body/form/div/div/div[2]/a")).click();
 
-        try {
-            driver.findElement(By.xpath("/html/body/div[6]/div[2]/div[1]/div/div[2]/a")).click();
-        } catch (Exception e) {
-
-        }
-
         if (driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[2]/ul/li/div[1]/a")).getText().equals("수강신청"))
             simple_GUI = true;
 
