@@ -73,7 +73,7 @@ public class Main {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-
+        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
