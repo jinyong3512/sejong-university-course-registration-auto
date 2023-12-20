@@ -1,8 +1,14 @@
-<p align='center' style='font-size:150%'>Sejong-University-Auto-Apply는 자동화 크롬을 이용한 수강신청 매크로입니다</p>
+<p align='center' style='font-size:150%'>sejong-university-course-registration-automation-project</p>
+<p align='center' style='font-size:150%'>자동화 크롬을 이용한 수강신청 매크로</p>
 
-# :star: 특징
+# 주제
+웹 애플리케이션 자동화 프레임워크인 Selenium과 CAPTCHA 이미지를 읽기 위한 OpenCV를 이용한 대학교 수강 신청 매크로
 
-## Main.java
+학번, 비밀번호, 수강 신청하고 싶은 과목 정보를 입력하면 자리가 생길 때까지 계속 신청을 시도하고 자리가 생길 시 수강 신청을 마무리
+
+# [시연 영상](https://www.notion.so/jinyong3512/sejong-university-course-registration-automation-project-79d7deff558c4d00ae422258b4fa9571) 
+
+## 업데이트
 >1. [2023 여름학기 업데이트] 수강신청 기간 작동
 >2. [2023 여름학기 업데이트] 수강신청 변경 기간 작동
 
@@ -18,41 +24,19 @@
 >9. 수강신청 클릭 마무리하기 
 >10. 성공 시 비프음 1분 알림 이후 종료 or 실패 시 7번으로 돌아가기
 
-# :white_check_mark: 실행 방법
-
-## 1.  Git Bash를 이용하여 clone
-```    
-$ (/c에서) git clone https://github.com/jinyong3512/Sejong-University-Auto-Apply.git
-```    
->(C 드라이브에 폴더명 "Sejong-University-Auto-Apply" 맞추기 필수)
-
-## 2.  chromedriver 다운로드하기
-
->본인 컴퓨터의 크롬 버전을 확인한 후 크롬 버전에 맞는 chromedriver.exe를 다운로드합니다
->
->크롬 버전 확인 방법: https://blog.naver.com/kiddwannabe/221539689821
->
->chromedriver.exe 다운: https://chromedriver.chromium.org/downloads
->
->C 드라이브에 있는 Sejong-University-Auto-Apply 안에 chromedriver.exe를<br>
->자신이 다운로드한 chromedriver.exe로 덮어주세요
-
-## 3.  보안 프로그램 삭제하기
-
->학교 로그인할 때 쓰는 키보드 보안 프로그램을 삭제해야 합니다<br>
->프로그램 추가/제거에서 nProtect Online Security V1.0을 제거해 주세요
- 
-## 4. 디스플레이 배율 변경
->컴퓨터 시스템 -> 디스플레이 설정에서 배율 100%로 설정
-
-## 5.  실행 도구
-
-### Java  
->IDE로 프로젝트를 열고 **Run Main.java**<br>
->(꼭 프로젝트로 Sejong-University-Auto-Apply 열어야 함)
-
 # 😞 한계
->1. 수강신청 변경 기간 CAPTCHA 뚫을 확률이 30% 정도 되는 것 같습니다
+>1. CAPTCHA 인식률이 너무 낮음
+>   2. CAPTCHA 이미지가 인식하기에 복잡하다
+>      3. 이미지의 전처리 기술들 (Gray Scale, Resize, Equalize, Binarization)을 이용하여 확률 높이기
+>2. 컴퓨터마다 Element (CAPTCHA 이미지)의 좌표 값이 다름
+>   3. 컴퓨터 시스템 디스플레이 배율이 달라서 생기는 문제
+>      4.   컴퓨터 시스템 디스플레이 배율이 100% 기준으로 코딩
 
-# :page_with_curl: 라이선스
->APACHE LICENSE, VERSION 2.0
+# 프로젝트 후기
+- 좋은 점
+    - Framework 와 Library를 프로젝트에 적용해보는 경험
+    - 수업 시간에 배운 이미지 전처리를 이용하였다
+    - 많은 버그가 발생하여 많은 디버깅을 경험
+
+- 부족한 점
+    - 서버를 이용하여 계속 실행되게 하고 싶었으나 관련 지식 부족으로 IDE가 계속 실행되어야 함 배포를 할 때도 코드만 배포하여 사용자가 직접 실행해야 한다. 완전한 서비스를 개발하기 위해서 프론트와 백의 중요성을 깨닫고 공부의 필요성을 느낌
