@@ -12,8 +12,6 @@ Selenium Java OpenCV Tess4j
 ## 기간
 2021.09 ~ 2023.06
 
-# [시연 영상](https://jinyong3512.notion.site/sejong-university-course-registration-auto-79d7deff558c4d00ae422258b4fa9571?pvs=4) 
-
 ## 업데이트
 >1. [2023 여름학기 업데이트] 수강신청 기간 작동
 >2. [2023 여름학기 업데이트] 수강신청 변경 기간 작동
